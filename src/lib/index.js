@@ -3,7 +3,8 @@ export const fetchData = async (baseUrl, selectedOption) => {
     let response = await fetch(baseUrl + selectedOption)
     if (response.ok) {
       let data = await response.json()
-      console.log(data)
+      //   console.log(data)
+      return data
       // how can I use setData from here?
       // are there any other ways?
     } else {

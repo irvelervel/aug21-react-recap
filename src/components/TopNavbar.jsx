@@ -14,8 +14,8 @@ const TopNavbar = ({ history }) => {
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
                 {/* this is the navigation feature provided with a Link component */}
-                <Link to="/" className="nav-link">
-                    Home
+                <Link to="/" className="no-underline">
+                    <span className="nav-link navbar-links">Home</span>
                 </Link>
                 {/* this is the navigation feature provided with a function! history.push() */}
                 <Nav.Link onClick={() => history.push('/data')}>Data page</Nav.Link>

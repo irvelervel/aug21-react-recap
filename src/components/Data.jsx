@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
+import ListGroup from 'react-bootstrap/ListGroup'
 import Layout from './Layout'
 import { fetchData } from '../lib'
 
@@ -10,9 +11,23 @@ const Data = ({ options }) => {
     const [selectedOption, setSelectedOption] = useState('posts')
     const [data, setData] = useState([])
 
+    //albums, photos, todos have a title property in their objects
+
     useEffect(() => {
-        fetchData(BASE_URL, selectedOption)
-    }, [])
+        let fetchFunction = async () => {
+            let dataFromEndpoint = await fetchData(BASE_URL, selectedOption)
+            console.log(dataFromEndpoint)
+            setData(dataFromEndpoint)
+        }
+        fetchFunction()
+    }, [selectedOption])
+
+    // if we were in a class component
+    // componentDidUpdate(prevProps, prevState){
+    //     if(prevState.selectedOption !== this.state.selectedOption){
+    //         this.fetchFunction()
+    //     }
+    // }
 
     return (
         <Layout>
@@ -30,6 +45,13 @@ const Data = ({ options }) => {
                     }
                 </Form.Control>
             </Form.Group>
+            <ListGroup>
+                {
+                    data.map(element => (
+                        <ListGroup.Item key={element.id}>{element.title}</ListGroup.Item>
+                    ))
+                }
+            </ListGroup>
         </Layout>
     )
 }

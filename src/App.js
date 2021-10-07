@@ -7,7 +7,7 @@ import HomePage from './components/HomePage'
 import Data from './components/Data'
 
 function App() {
-  const options = ['posts', 'comments', 'albums', 'photos', 'todos', 'users']
+  const options = ['posts', 'albums', 'photos', 'todos']
 
   return (
     <BrowserRouter>

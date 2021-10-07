@@ -45,3 +45,11 @@
   line-height: 60px;
   background-color: #f5f5f5;
 }
+
+.navbar-links:hover {
+  border-bottom: 3px solid green;
+} 
+
+.no-underline:hover {
+  text-decoration: none !important
+}
